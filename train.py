@@ -62,7 +62,7 @@ model.summary()
 history = model.fit(X, Y, epochs=150, batch_size=50,  verbose=1, validation_split=0.2)
 
 
-fname_in = "../data/dataset.hdf5"
+fname_in = "../data/test/test-dataset.hdf5"
 
 
 with h5py.File(fname_in,'r') as hf:
@@ -70,6 +70,6 @@ with h5py.File(fname_in,'r') as hf:
     test_Y  = np.array(hf.get('train_Y'), dtype=np.int)
 
 
-#new = np.expand_dims(test_X1[0], axis=0)
-#ynew=model.predict(new)
-#print("Predicted=%s" % (ynew[0]))
+new = np.expand_dims(test_X1[0], axis=0)
+ynew=model.predict(new)
+print("Predicted=%s" % (ynew[0]))
